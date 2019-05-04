@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TableRow from "./TableRow";
+import { Link } from "react-router-dom";
 
 class admin extends Component {
   constructor(props) {
@@ -29,6 +30,11 @@ class admin extends Component {
   render() {
     return (
       <div className="container">
+        <header>
+          <Link to="/sechome">
+            <button>Home </button>
+          </Link>
+        </header>
         <table className="table table-striped">
           <thead>
             <tr>

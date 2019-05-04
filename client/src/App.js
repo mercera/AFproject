@@ -4,6 +4,8 @@ import { Route, Router } from "react-router-dom";
 import { PrivateRoute } from "./components/PrivateRoute";
 import { history } from "./helpers/history";
 import { role } from "./helpers/role";
+import student from "./components/student";
+import instructor from "./components/instructor";
 import Home from "./components/home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
@@ -40,6 +42,16 @@ class App extends Component {
           <Route path="/login" component={Login} />
 
           <PrivateRoute path="/admin" roles={[role.Admin]} component={admin} />
+          <PrivateRoute
+            path="/instructor"
+            roles={[role.Instructor]}
+            component={instructor}
+          />
+          <PrivateRoute
+            path="/student"
+            roles={[role.Student]}
+            component={student}
+          />
           <PrivateRoute path="/sechome" component={homesec} />
         </div>
       </Router>
