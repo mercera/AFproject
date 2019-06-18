@@ -1,4 +1,5 @@
 const express = require("express");
+const mailservice = require("../../mailservice/transporter");
 const router = express.Router();
 
 const User = require("../../models/user");
@@ -41,6 +42,46 @@ router.get("/admin", (req, res) => {
       res.json(users);
     }
   });
+});
+
+router.get("/admincou", (req, res) => {
+  User.find({ role: "Instructor" }, function(err, users) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(users);
+    }
+  });
+});
+
+router.put("/:id", (req, res) => {
+  var ObjectID = require("mongodb").ObjectID;
+  User.update(
+    { _id: ObjectID(req.params.id) },
+    { $set: { role: req.body.role } }
+  )
+    .then(data => {
+      if (req.body.role === "Instructor") {
+        var mail = {
+          from: "Admin",
+          to: req.body.email,
+          subject: "Assignment as Instructor",
+          text: "You have been appointed as an Instructor"
+        };
+
+        mailservice.sendMail(mail, (err, data) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(data);
+          }
+        });
+      }
+      return res.json(data);
+    })
+    .catch(err => {
+      return res.json(err);
+    });
 });
 
 module.exports = router;

@@ -21,6 +21,7 @@
     "concurrently": "^3.5.1",
     "express": "^4.16.2",
     "mongoose": "^5.5.2",
+    "nodemailer": "^6.2.1",
     "react-router-dom": "^5.0.0"
   }
 }
