@@ -31,10 +31,16 @@ class admin extends Component {
     return (
       <div className="container">
         <header>
+          <br/>
           <Link to="/sechome">
-            <button>Home </button>
+            <button className="btn btn-dark col-md-3">Home </button>
+          </Link>
+        
+          <Link to="/addCourse">
+            <button className="btn btn-dark col-md-3 ml-3">Add Course </button>
           </Link>
         </header>
+        <br/>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -42,10 +48,12 @@ class admin extends Component {
               <td>username</td>
               <td>email</td>
               <td>Role</td>
+              <td>Set Role</td>
             </tr>
           </thead>
           <tbody>{this.tabRow()}</tbody>
         </table>
+
       </div>
     );
   }

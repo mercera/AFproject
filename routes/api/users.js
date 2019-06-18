@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../../models/user");
+const Course=require("../../models/course");
 
 router.post("/", (req, res) => {
   User.findOne({ email: req.body.email }).then(user => {
@@ -42,5 +43,24 @@ router.get("/admin", (req, res) => {
     }
   });
 });
+router.get("/admincou", (req, res) => {
+  User.find({role:"Instructor"},function(err, users) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(users);
+
+    }
+  });
+});
+
+router.post("/addCourse",(req,res)=>{
+  const newcourse=new Course({
+    coursecode:req.body.coursecode,
+    coursename:req.body.coursename,
+    lecturer:req.body.lecturer
+  });
+  newcourse.save();
+})
 
 module.exports = router;

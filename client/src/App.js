@@ -10,6 +10,7 @@ import Home from "./components/home";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
 import admin from "./components/admin";
+import addCourse from "./components/addCourse";
 import homesec from "./components/homesec";
 import { authenticationService } from "./services/authentication.service";
 
@@ -40,6 +41,8 @@ class App extends Component {
           <Route path="/signup" component={Signup} />
 
           <Route path="/login" component={Login} />
+          
+          <Route path="/addCourse"component={addCourse}/>
 
           <PrivateRoute path="/admin" roles={[role.Admin]} component={admin} />
           <PrivateRoute
