@@ -23,7 +23,7 @@ class admin extends Component {
       });
   }
   tabRow() {
-    return this.state.users.map(function(object, i) {
+    return this.state.users.map((object, i) => {
       return <TableRow obj={object} key={i} />;
     });
   }
@@ -31,8 +31,12 @@ class admin extends Component {
     return (
       <div className="container">
         <header>
+          <br />
           <Link to="/sechome">
-            <button>Home </button>
+            <button className="btn btn-dark col-md-3">Home </button>
+          </Link>
+          <Link to="/addCourse">
+            <button className="btn btn-dark col-md-3 ml-3">Add Course </button>
           </Link>
         </header>
         <table className="table table-striped">
