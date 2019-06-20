@@ -11,6 +11,11 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import admin from "./components/admin";
 import addCourse from "./components/addCourse";
+import manageExam from "./components/manageExams";
+import manageAssignment from "./components/manageAssignments"; 
+import updateExam from "./components/examUpdate"; 
+
+
 import homesec from "./components/homesec";
 import { authenticationService } from "./services/authentication.service";
 
@@ -43,6 +48,12 @@ class App extends Component {
           <Route path="/login" component={Login} />
           
           <Route path="/addCourse"component={addCourse}/>
+          <Route path="/manageExams"component={manageExam}/>
+          <Route path="/manageAssignments"component={manageAssignment}/>
+          <Route path="/updateExams"component={updateExam}/>
+
+
+
 
           <PrivateRoute path="/admin" roles={[role.Admin]} component={admin} />
           <PrivateRoute
