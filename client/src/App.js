@@ -14,7 +14,7 @@ import addCourse from "./components/addCourse";
 import manageExam from "./components/manageExams";
 import manageAssignment from "./components/manageAssignments"; 
 import updateExam from "./components/examUpdate"; 
-
+import uploadFile from "./components/uploadFile";
 
 import homesec from "./components/homesec";
 import { authenticationService } from "./services/authentication.service";
@@ -51,6 +51,7 @@ class App extends Component {
           <Route path="/manageExams"component={manageExam}/>
           <Route path="/manageAssignments"component={manageAssignment}/>
           <Route path="/updateExams"component={updateExam}/>
+          <Route path="/uploadFile"component={uploadFile}/>
 
 
 

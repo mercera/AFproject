@@ -28,7 +28,7 @@ router.put("/:id", (req, res) => {
   var ObjectID = require("mongodb").ObjectID;
   Exam.update(
     { _id: ObjectID(req.params.id) },
-    { $set: { duedate: req.body.selecteddate } }
+    { $set: { duedate: req.body.duedate } }
   )
     .then(data => {
       return res.json(data);

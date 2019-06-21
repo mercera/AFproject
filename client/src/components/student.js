@@ -10,6 +10,10 @@ class student extends Component {
         <Link to="/sechome">
           <button>Home </button>
         </Link>
+        <Link to="/uploadFile">
+          <button>Upload File </button>
+        </Link>
+        
       </React.Fragment>
     );
   }
